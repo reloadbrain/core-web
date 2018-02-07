@@ -44,7 +44,12 @@ export const EDIT_PAGE_JS = `
                 canDrop = containerChildrenQuantity < containerMaxLimit;
             }
 
-           if (!canDrop && target !== source) {
+            // It needs to test more scenarios
+            if (el.dataset.dotIdentifier === sibling.dataset.dotIdentifier ) {
+                canDrop = false;
+            }
+
+            if (!canDrop && target !== source) {
                 forbiddenTarget = target;
                 forbiddenTarget.classList.add('no')
             }
